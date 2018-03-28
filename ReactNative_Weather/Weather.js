@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import { LinearGradient } from "expo";
-import { Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import PropTypes from "prop-types"
 
 const weatherCondition = {
@@ -9,43 +9,49 @@ const weatherCondition = {
 		colors: ["#00C6FB", "#005BEA"],
 		title: "Raining",
 		subtitle: "Take an umbrella",
-		icon: "ios-rainy"
+		icon: "weather-pouring"
 	},
 	Clear: {
 		colors: ["#FEF253", "#FF7300"],
 		title: "Sunny",
 		subtitle: "Good day to tanning",
-		icon: "ios-sunny"
+		icon: "weather-sunny"
 	},
 	Thunderstorm: {
 		colors: ["#00ECBC", "#007ADF"],
-		title: "Thunderstorm",
+		title: "Stormy",
 		subtitle: "Prepare a lightning rod",
-		icon: "ios-thunderstorm"
+		icon: "weather-lightning"
 	},
 	Clouds: {
 		colors: ["#D7D2CC", "#304352"],
-		title: "Clouds",
+		title: "Cloudy",
 		subtitle: "Gloomy day",
-		icon: "ios-cloudy"
+		icon: "weather-cloudy"
 	},
 	Snow: {
 		colors: ["#7DE2FC", "#B9B6E5"],
-		title: "Cold",
+		title: "Snowing",
 		subtitle: "Will be Eskimos",
-		icon: "ios-snow"
+		icon: "weather-snowy"
 	},
 	Drizzle: {
 		colors: ["#89F7FE", "#66A6FF"],
-		tilte: "Drizzle",
+		title: "Drizzle",
 		subtitle: "In gentle rain",
-		icon: "ios-rainy-outline"
+		icon: "weather-rainy"
 	},
 	Haze: {
 		colors: ["#D7D2CC", "#304352"],
-		tilte: "Haze",
+		title: "Foggy",
 		subtitle: "You can't see me",
-		icon: "ios-rainy-outline"
+		icon: "weather-fog"
+	},
+	Mist: {
+		colors: ["#D7D2CC", "#304352"],
+		title: "Misty",
+		subtitle: "It's a foggy",
+		icon: "weather-partlycloudy"
 	}
 }
 
@@ -53,7 +59,7 @@ function  Weather({weatherName, temp})  {
 	return (
 		<LinearGradient colors={weatherCondition[weatherName].colors} style={styles.container}>
 			<View style={styles.upper}>
-				<Ionicons color="white" size={144} name={weatherCondition[weatherName].icon} />
+				<MaterialCommunityIcons color="white" size={144} name={weatherCondition[weatherName].icon} />
 				<Text style={styles.temp}>{temp}º</Text>
 			</View>
 			<View style={styles.lower}>
