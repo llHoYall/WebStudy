@@ -44,5 +44,8 @@ HoYa's web study repository.
 > $ exp init project-name
 >
 > $ cd project-name
->
+
+### Run Project
+
 > $ exp start
+
