@@ -1,0 +1,9 @@
+# node.js & npm
+node_modules/**/*
+
+# parcel
+.cache
+dist
+
+# build
+build
