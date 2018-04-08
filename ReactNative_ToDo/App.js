@@ -65,10 +65,10 @@ export default class App extends React.Component {
     try {
       const todos = await AsyncStorage.getItem("todos");
       const parsedToDos = JSON.parse(todos);
-      this.setState({
+      setTimeout(() => this.setState({
         loadedToDos: true,
         todos: parsedToDos || {}
-      });
+      }), 1000);
     } catch (err) {
       console.log(err);
     }

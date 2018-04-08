@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, TextInput } from "react-native";
 import PropTypes from "prop-types";
+import { FontAwesome } from "@expo/vector-icons";
 
 const { width, height } = Dimensions.get("window");
 
@@ -41,7 +42,9 @@ export default class ToDo extends Component {
 							multiline={true}
 							onChangeText={this._controlInput}
 							returnKeyType={"done"}
-							onBlur={this._finishEditing} />
+							onBlur={this._finishEditing}
+							underlineColorAndroid={"transparent"}
+						/>
 					) : (
 						<Text style={[styles.text, isCompleted ? styles.completedText : styles.uncompletedText]}>
 							{text}
@@ -52,7 +55,9 @@ export default class ToDo extends Component {
 					<View style={styles.actions}>
 						<TouchableOpacity onPressOut={this._finishEditing}>
 							<View style={styles.actionContainer}>
-								<Text style={styles.actionText}>V</Text>
+								<Text style={styles.actionText}>
+									<FontAwesome name="check-square" size={25} style={{ color: "black" }} />
+								</Text>
 							</View>
 						</TouchableOpacity>
 					</View>
@@ -60,12 +65,21 @@ export default class ToDo extends Component {
 					<View style={styles.actions}>
 						<TouchableOpacity onPressOut={this._startEditing}>
 							<View style={styles.actionContainer}>
-								<Text style={styles.actionText}>E</Text>
+								<Text style={styles.actionText}>
+									<FontAwesome name="pencil-square" size={25} style={{ color: "black" }} />
+								</Text>
 							</View>
 						</TouchableOpacity>
-						<TouchableOpacity onPressOut={() => deleteToDo(id)}>
+						<TouchableOpacity
+							onPressOut={(event) => {
+								event.stopPropagation;
+								deleteToDo(id)
+							}}
+						>
 							<View style={styles.actionContainer}>
-								<Text style={styles.actionText}>X</Text>
+								<Text style={styles.actionText}>
+									<FontAwesome name="minus-square" size={25} style={{ color: "black" }} />
+								</Text>
 							</View>
 						</TouchableOpacity>
 					</View>
@@ -74,7 +88,8 @@ export default class ToDo extends Component {
 		);
 	}
 
-	_toggleComplete = () => {
+	_toggleComplete = (event) => {
+		event.stopPropagation();
 		const { isCompleted, uncompleteToDo, completeToDo, id } = this.props;
 		if (isCompleted) {
 			uncompleteToDo(id);
@@ -83,13 +98,15 @@ export default class ToDo extends Component {
 		}
 	};
 
-	_startEditing = () => {
+	_startEditing = (event) => {
+		event.stopPropagation();
 		this.setState({
 			isEditing: true
 		});
 	};
 
-	_finishEditing = () => {
+	_finishEditing = (event) => {
+		event.stopPropagation();
 		const { todoValue } = this.state;
 		const { id, updateToDo } = this.props;
 		updateToDo(id, todoValue);
