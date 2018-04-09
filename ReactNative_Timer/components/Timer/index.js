@@ -15,7 +15,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		startTimer: bindActionCreators(actionCreators.startTimer, dispatch),
-		restartTimer: bindActionCreators(actionCreators.restartTimer, dispatch),
+		stopTimer: bindActionCreators(actionCreators.stopTimer, dispatch),
+		addSecond: bindActionCreators(actionCreators.addSecond, dispatch)
 	}
 }
 
