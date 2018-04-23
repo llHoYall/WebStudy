@@ -1,0 +1,17 @@
+#stage {
+	width: 250px;
+	height: 500px;
+	border: 3px solid;
+	background: #333;
+}
+
+.block {
+	width: 23px;
+	height: 23px;
+	border: 1px solid #000;
+	float: left;
+}
+
+.none {
+	background: #333;
+}
