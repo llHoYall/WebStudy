@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import styled, { injectGlobal, css, keyframes, ThemeProvider } from "styled-components";
-import theme from "./theme";
+import styled, { injectGlobal, css, keyframes, ThemeProvider } from 'styled-components';
+import theme from './theme';
 
 injectGlobal`
   body {
@@ -13,6 +13,9 @@ const Container = styled.div`
   height: 100vh;
   width: 100%;
   background-color: pink;
+  ${Card} {
+    background-color: blue;
+  }
 `;
 
 // const awesomeCard = css`
