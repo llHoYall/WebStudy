@@ -1,5 +1,14 @@
 # WebStudy
+
 HoYa's web study repository.
+
+## [ Node.js ]
+
+> $ npm init
+
+### Run App
+
+> $ npm start
 
 ## [ Create-React-App ]
 
