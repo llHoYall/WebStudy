@@ -1,0 +1,18 @@
+{
+  "name": "jquery_bingo",
+  "version": "1.0.0",
+  "description": "Bingo game with jQuery",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jquery"
+  ],
+  "author": "llHoYall <hoya128@gmail.com>",
+  "license": "ISC"
+}
