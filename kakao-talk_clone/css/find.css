@@ -1,0 +1,39 @@
+.find .find__options {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 25px;
+	padding-bottom: 15px;
+	background-color: #eeeeee;
+}
+
+.find__options .find__option {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-left: 30px;
+	padding-right: 5px;
+	color: #523737;
+}
+
+.find__option i {
+	margin-bottom: 15px;
+}
+
+.find__option span {
+	font-size: 12px;
+}
+
+.find__recommended header {
+	border-bottom: 1px solid #ebebeb;
+	padding: 5px 10px;
+	color: #b4b4b4;
+	font-size: 12px;
+}
+
+.recommended__none {
+	border-bottom: 1px solid #ebebeb;
+	padding: 20px 0;
+	color: #b4b4b4;
+	font-size: 14px;
+	text-align: center;
+}
