@@ -13,12 +13,19 @@
 .search-bar input {
 	box-sizing: border-box;
 	border: 0;
+	border: 1px solid transparent;
 	border-radius: 5px;
 	width: 100%;
 	background-color: #f1f2f3;
 	padding: 5px 7px;
 	text-align: center;
 	font-size: 13px;
+	transition: border-color .2s linear;
+}
+
+.search-bar input:focus {
+	outline: none;
+	border-color: #ffe94a;
 }
 
 .search-bar input:focus {
