@@ -1,0 +1,12 @@
+{
+  "name": "typechain_typescript",
+  "version": "1.0.0",
+  "description": "TypeChain project with TypeScript",
+  "main": "index.js",
+  "author": "llHoYall <hoya128@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "prestart": "tsc"
+  }
+}
