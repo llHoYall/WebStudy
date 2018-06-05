@@ -1,54 +1,41 @@
-// Optional arguments
-const name = "HoYa",
-age = 36,
-gender = "male"
+import * as CryptoJS from "crypto-js";
 
-const sayHi = (name, age, gender?) => {
-    console.log(`Hello ${name}, ${age}, ${gender}`)
-}
-sayHi(name, age)
+class Block {
+    public index: number;
+    public hash: string;
+    public prev_hash: string;
+    public timestamp: number;
+    public data: string;    
 
-// Types arguments & return
-const sayHi2 = (name: string, age: number, gender: string): string => {
-    return `Hello ${name}, ${age}, ${gender}`;
-}
-console.log(sayHi2("HoYa", 37, "male"))
-
-// Interfaces
-interface Human {
-    name: string;
-    age: number;
-    gender: string;
-}
-
-const person = {
-    name: "HoYa",
-    age: 38,
-    gender: "male"
-};
-
-const sayHi3 = (person: Human): string => {
-    return `Hello ${person.name}, ${person.age}, ${person.gender}`;
-}
-console.log(sayHi3(person))
-
-// Class
-class Human {
-    public name: string;
-    public age: number;
-    public gender: string;
-    constructor(name: string, age: number, gender: string) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+    constructor(index: number, hash: string, prev_hash: string, timestamp: number, data: string) {
+        this.index = index;
+        this.hash = hash;
+        this.prev_hash = prev_hash;
+        this.timestamp = timestamp;
+        this.data = data;
     }
+
+    static calculateBlockHash = (index: number, prev_hash: string, timestamp: number, data: string): string => 
+        CryptoJS.SHA256(index + prev_hash + timestamp + data).toString();
 }
 
-const hoya = new Human("HoYa", 36, "male")
+const genesis_block: Block = new Block(0, "11111111", "", 123456, "Hello");
 
-const sayHi4 = (person: Human): string => {
-    return `Hello ${person.name}, ${person.age}, ${person.gender}`;
+let blockchain: Block[] = [genesis_block];
+
+const getBlockchain = (): Block[] => blockchain;
+
+const getLatestBlock = (): Block => blockchain[blockchain.length - 1];
+
+const getNewTimestamp = (): number => Math.round(new Date().getTime() / 1000);
+
+const createNewBlock = (data: string): Block => {
+    const prev_block: Block = getLatestBlock();
+    const new_index: number = prev_block.index + 1;
+    const new_timestamp: number = getNewTimestamp();
+    const new_hash: string = Block.calculateBlockHash(new_index, prev_block.hash, new_timestamp, data);
+    const new_block: Block = new Block(new_index, new_hash, prev_block.hash, new_timestamp, data);
+    return new_block;
 }
-console.log(sayHi4(hoya))
 
-export {}
+export {};
