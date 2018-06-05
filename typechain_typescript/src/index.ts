@@ -32,4 +32,23 @@ const sayHi3 = (person: Human): string => {
 }
 console.log(sayHi3(person))
 
+// Class
+class Human {
+    public name: string;
+    public age: number;
+    public gender: string;
+    constructor(name: string, age: number, gender: string) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+    }
+}
+
+const hoya = new Human("HoYa", 36, "male")
+
+const sayHi4 = (person: Human): string => {
+    return `Hello ${person.name}, ${person.age}, ${person.gender}`;
+}
+console.log(sayHi4(hoya))
+
 export {}
