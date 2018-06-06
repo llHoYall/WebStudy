@@ -30,4 +30,4 @@ const typography = new Typography({
   includeNormalize: false
 });
 
-Typography.injectStyles();
+typography.injectStyles();
