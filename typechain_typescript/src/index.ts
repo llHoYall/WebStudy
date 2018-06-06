@@ -38,6 +38,7 @@ const createNewBlock = (data: string): Block => {
     const new_timestamp: number = getNewTimestamp();
     const new_hash: string = Block.calculateBlockHash(new_index, prev_block.hash, new_timestamp, data);
     const new_block: Block = new Block(new_index, new_hash, prev_block.hash, new_timestamp, data);
+    addBlock(new_block);
     return new_block;
 }
 
@@ -63,5 +64,10 @@ const addBlock = (candidate_block: Block): void => {
         blockchain.push(candidate_block);
     }
 }
+
+createNewBlock("second block");
+createNewBlock("third block");
+createNewBlock("fourth block");
+console.log(blockchain);
 
 export {};
